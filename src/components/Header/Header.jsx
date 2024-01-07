@@ -23,7 +23,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectUserName, selectLoggedUser } from 'redux/Auth/auth-selectors';
 
 import {
   Container,
@@ -61,6 +60,14 @@ import edit from '../../images/icons-linear/edit-2.svg';
 import menu from '../../images/icons-linear/menu.svg';
 import menuOpened from '../../images/icons-linear/menu.svg';
 import avatar from '../../images/icons-linear/profile-circle.svg';
+import {
+  selectLoggedUser,
+  selectUserAvatarURL,
+  selectUserGender,
+  selectUserGoal,
+  selectUserName,
+  selectUserWeight,
+} from '../../redux/Auth/auth-selectors';
 
 // import TargetModal from '../HeaderModals/TargetModal';
 // import WeightModal from '../HeaderModals/WeightModal';
@@ -76,14 +83,18 @@ export const Header = () => {
   const location = useLocation();
   const [currentURL, setCurrentURL] = useState(location.pathname);
 
-  const user = useSelector(selectUserName);
+  const userGender = useSelector(selectUserGender);
+  const userGoal = useSelector(selectUserGoal);
   const isLoggedIn = useSelector(selectLoggedUser);
+  const userWeight = useSelector(selectUserWeight);
+  const userName = useSelector(selectUserName);
+  const userAvatarURL = useSelector(selectUserAvatarURL);
 
   let goalIcon;
 
-  switch (user.gender) {
+  switch (userGender) {
     case 'Female':
-      switch (user.goal) {
+      switch (userGoal) {
         case 'Lose fat':
           goalIcon = loseFatGirl;
           break;
@@ -98,7 +109,7 @@ export const Header = () => {
       break;
 
     case 'Male':
-      switch (user.goal) {
+      switch (userGoal) {
         case 'Lose fat':
           goalIcon = loseFatMen;
           break;
@@ -160,7 +171,7 @@ export const Header = () => {
               <TextContainer>
                 <InfoBlockName>Goal</InfoBlockName>
                 <InfoBlockText>
-                  {user.goal || 'No goal yet'}
+                  {userGoal || 'No goal yet'}
                   <ArrowSvg
                     src={arrowDown}
                     alt="arrow down"
@@ -183,7 +194,7 @@ export const Header = () => {
               <TextContainer>
                 <InfoBlockName>Weight</InfoBlockName>
                 <InfoBlockText>
-                  {user.weight || 0}
+                  {userWeight || 0}
                   <WeightKg>kg</WeightKg>
                   <EditSvg src={edit} alt="edit" />
                 </InfoBlockText>
@@ -194,8 +205,8 @@ export const Header = () => {
             </InfoBlock>
           </InfoOptions>
           <UserBlock onClick={toggleModalProfile}>
-            {user.name || 'User'}
-            <AvaImg src={user.avatarURL || avatar} alt="avatar" />
+            {userName || 'User'}
+            <AvaImg src={userAvatarURL || avatar} alt="avatar" />
             <ArrowSvg
               src={arrowDown}
               alt="arrow down"

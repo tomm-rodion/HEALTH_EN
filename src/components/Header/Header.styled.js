@@ -20,7 +20,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-  background-color: ${props => props.theme.colors.black2};
+  background-color: ${props => props.theme.color.primary_black_2};
 
   @media screen and (${props => props.theme.mq.mobile}) {
     padding-top: 18px;
@@ -53,7 +53,7 @@ export const Content = styled.div`
 `;
 
 export const LogoBox = styled.div`
-  color: ${props => props.theme.colors.gray};
+  color: ${props => props.theme.color.primary_grey};
   font-size: ${props => props.theme.fontSizes.l};
   font-weight: ${props => props.theme.fontWeights.bold};
 
@@ -119,8 +119,8 @@ export const InfoBlock = styled.div`
 export const IconContainer = styled.div`
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.01);
-  border: 1px solid ${props => props.theme.colors.gray1};
-  border-radius: ${div => div.theme.radii.normal};
+  border: 1px solid ${props => props.theme.color.secondary_color_grey_1};
+  border-radius: 12px;
   width: 48px;
   height: 48px;
   margin-right: 12px;
@@ -134,13 +134,13 @@ export const TextContainer = styled.div`
 `;
 
 export const InfoBlockName = styled.p`
-  color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.color.primary_white};
   font-size: ${p => p.theme.fontSizes.xs};
   font-weight: ${p => p.theme.fontWeights.semiBold};
 `;
 
 export const InfoBlockText = styled.p`
-  color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.color.primary_white};
   font-size: ${p => p.theme.fontSizes.xs};
   font-weight: ${p => p.theme.fontWeights.medium};
   display: flex;
@@ -153,7 +153,7 @@ export const ArrowSvg = styled.img`
 `;
 
 export const WeightKg = styled.span`
-  color: ${p => p.theme.colors.gray};
+  color: ${p => p.theme.color.primary_grey};
   font-size: ${p => p.theme.fontSizes.xs};
   font-weight: ${p => p.theme.fontWeights.regular};
   margin-left: 4px;
@@ -165,7 +165,7 @@ export const EditSvg = styled.img`
 `;
 
 export const UserBlock = styled.div`
-  color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.color.primary_white};
   font-size: ${p => p.theme.fontSizes.xs};
   font-weight: ${p => p.theme.fontWeights.regular};
   display: flex;
@@ -186,7 +186,7 @@ export const AvaImg = styled.img`
 `;
 
 export const Unauthorized = styled.div`
-  color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.color.primary_white};
   font-size: ${p => p.theme.fontSizes.xs};
   font-weight: ${p => p.theme.fontWeights.regular};
   display: flex;
@@ -206,9 +206,9 @@ export const Unauthorized = styled.div`
 `;
 
 export const DefaultLink = styled(Link)`
-  color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.color.primary_white};
 `;
 
 export const ActiveLink = styled(Link)`
-  color: ${p => p.theme.colors.greenLite};
+  color: ${p => p.theme.color.primary_lite_green};
 `;
