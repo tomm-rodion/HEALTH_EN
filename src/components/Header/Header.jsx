@@ -79,6 +79,7 @@ export const Header = () => {
   const [showModalWeight, setShowModalWeight] = useState(false);
   const [showModalProfile, setShowModalProfile] = useState(false);
   const [showModalMenu, setShowModalMenu] = useState(false);
+  console.log(showModalWeight);
 
   const location = useLocation();
   const [currentURL, setCurrentURL] = useState(location.pathname);
